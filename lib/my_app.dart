@@ -12,6 +12,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Widget? currentScreen;
+
+  @override
+  void initState() {
+    super.initState();
+    currentScreen = const StartScreen();
+  }
+
+  
+
   @override
   Widget build(context) {
     return MaterialApp(
@@ -20,8 +30,8 @@ class _MyAppState extends State<MyApp> {
           decoration: const BoxDecoration(
             color: Colors.amber,
           ),
-          child: const Center(
-            child: StartScreen(),
+          child: Center(
+            child: currentScreen,
           ),
         ),
       ),
