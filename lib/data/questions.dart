@@ -38,7 +38,7 @@ const dataQuestions = [
       ],
     ),
   Quizzes(
-    "Quanto o valor médio dos seus sapatos?", 
+    "Qual o valor médio que você paga em um sapato?", 
       [
         "R\$200", 
         "Mais de R\$200", 
