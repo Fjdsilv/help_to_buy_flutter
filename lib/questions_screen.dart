@@ -10,9 +10,15 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreen extends State<QuestionsScreen> {
-
   @override
   Widget build(context) {
-    return const Text("questions screen");
+    return Container(
+      child: SizedBox(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text("data")],
+        ),
+      ),
+    );
   }
 }

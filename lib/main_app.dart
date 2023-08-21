@@ -1,26 +1,31 @@
 import "package:flutter/material.dart";
 
 import "package:help_buy_robot_flutter/start_screen.dart";
+import "package:help_buy_robot_flutter/questions_screen.dart";
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class MainApp extends StatefulWidget {
+  const MainApp({super.key});
 
   @override
-  State<MyApp> createState() {
+  State<MainApp> createState() {
     return _MyAppState();
   }
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MainApp> {
   Widget? currentScreen;
 
   @override
   void initState() {
     super.initState();
-    currentScreen = const StartScreen();
+    currentScreen = StartScreen(switchScreen);
   }
 
-  
+  void switchScreen() {
+    setState(() {
+      currentScreen = const QuestionsScreen();
+    });
+  }
 
   @override
   Widget build(context) {
