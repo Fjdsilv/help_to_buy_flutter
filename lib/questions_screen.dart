@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import "package:help_buy_robot_flutter/quiz_button.dart";
 
+import "package:help_buy_robot_flutter/data/questions.dart";
+
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
 
@@ -12,8 +14,18 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreen extends State<QuestionsScreen> {
+  var counterQuestion = 0;
+
+  void answerChosen() {
+    setState(() {
+      counterQuestion++;
+    });
+  }
+
   @override
   Widget build(context) {
+    final currentQuestion = questions[counterQuestion];
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -21,22 +33,21 @@ class _QuestionsScreen extends State<QuestionsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            
-            const Text("Qual o valor médio que você paga em um sapato?", style: TextStyle(fontSize: 18), textAlign: TextAlign.center,),
-            const SizedBox(height: 10,),
-            QuizButton(answerText: "Mais de R\$200", onTop: () {},),
-            QuizButton(answerText: "Asfalto", onTop: () {},),
-            QuizButton(answerText: "Asfalto", onTop: () {},),
-            QuizButton(answerText: "Asfalto", onTop: () {},),
+            Text(
+              currentQuestion.text,
+              style: const TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 10),
+            ...currentQuestion.answers.map((item) {
+              return QuizButton(
+                answerText: item,
+                onTop: () {},
+              );
+            })
           ],
         ),
       ),
     );
   }
 }
-
-
-        // OutlinedButton(onPressed: () {}, child: const Text("answer 1")),
-        //     OutlinedButton(onPressed: () {}, child: const Text("answer 2")),
-        //     OutlinedButton(onPressed: () {}, child: const Text("answer 3")),
-        //     OutlinedButton(onPressed: () {}, child: const Text("answer 4")),

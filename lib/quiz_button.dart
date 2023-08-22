@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class QuizButton extends StatelessWidget {
-  const QuizButton({super.key, required this.answerText, required this.onTop});
+  const QuizButton({
+    super.key,
+    required this.answerText,
+    required this.onTop,
+  });
 
   final String answerText;
   final void Function() onTop;
