@@ -31,9 +31,9 @@ const questions = [
   QuizQuestion(
     'Qual o valor médio que você paga em um sapato?',
     [
-      'R\$200"',
+      'R\$200',
       'Mais de R\$200',
-      'R\$500"',
+      'R\$500',
       'Mais de R\$500',
     ],
   ),

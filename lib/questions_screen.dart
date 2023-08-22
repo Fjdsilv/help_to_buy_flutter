@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-import "package:help_buy_robot_flutter/quiz_button.dart";
-
 import "package:help_buy_robot_flutter/data/questions.dart";
 
+import "package:help_buy_robot_flutter/quiz_button.dart";
+
+
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen({super.key, required this.selectedAnswer});
+
+  final void Function(String answer) selectedAnswer;
 
   @override
   State<QuestionsScreen> createState() {
@@ -16,7 +19,9 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreen extends State<QuestionsScreen> {
   var counterQuestion = 0;
 
-  void answerChosen() {
+  void answerChosen(String chosenAnswer) {
+    widget.selectedAnswer(chosenAnswer);
+
     setState(() {
       counterQuestion++;
     });
@@ -42,7 +47,9 @@ class _QuestionsScreen extends State<QuestionsScreen> {
             ...currentQuestion.answers.map((item) {
               return QuizButton(
                 answerText: item,
-                onTop: () {},
+                onTop: () {
+                  answerChosen(item);
+                },
               );
             })
           ],

@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 
+import "package:help_buy_robot_flutter/data/questions.dart";
+
 import "package:help_buy_robot_flutter/start_screen.dart";
 import "package:help_buy_robot_flutter/questions_screen.dart";
 
@@ -14,6 +16,7 @@ class MainApp extends StatefulWidget {
 
 class _MyAppState extends State<MainApp> {
   Widget? currentScreen;
+  List<String> selectedAnswers = [];
 
   @override
   void initState() {
@@ -21,9 +24,21 @@ class _MyAppState extends State<MainApp> {
     currentScreen = StartScreen(switchScreen);
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        selectedAnswers = [];
+        currentScreen = StartScreen(switchScreen);
+        //to demo restart app
+      });
+    }
+  }
+
   void switchScreen() {
     setState(() {
-      currentScreen = const QuestionsScreen();
+      currentScreen = QuestionsScreen(selectedAnswer: chooseAnswer);
     });
   }
 
