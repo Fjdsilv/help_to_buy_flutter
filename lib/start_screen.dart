@@ -15,9 +15,9 @@ class StartScreen extends StatelessWidget {
           width: 300,
         ),
         const Text(
-          "Posso ajudá-lo no seu pedido?",
+          "Aperte Start e irei te ajudar com a sua escolha!",
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 17,
             fontWeight: FontWeight.bold,
           ),
         ),

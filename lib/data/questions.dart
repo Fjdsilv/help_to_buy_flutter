@@ -43,7 +43,7 @@ const questions = [
       'Azul com Laranja',
       'Verde, Vermelho e Amarelo',
       'Preto, Branco e Cinza',
-      'Marrom, Mostarda, Salmão',
+      'Marrom, Mostarda e Salmão',
     ],
   ),
 ];

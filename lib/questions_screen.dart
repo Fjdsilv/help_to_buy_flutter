@@ -4,9 +4,11 @@ import "package:help_buy_robot_flutter/data/questions.dart";
 
 import "package:help_buy_robot_flutter/quiz_button.dart";
 
-
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key, required this.selectedAnswer});
+  const QuestionsScreen({
+    super.key,
+    required this.selectedAnswer,
+  });
 
   final void Function(String answer) selectedAnswer;
 
